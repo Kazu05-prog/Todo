@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Engineering Daily Chores</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Computer Engineering Daily Chores</h1>
+
+        <form action="/add" method="POST" class="add-chore-form">
+            <input type="text" name="task" id="task" placeholder="Add a new chore..." required>
+            <button type="submit">Add Chore</button>
+        </form>
+
+        <ul class="chore-list">
+            <% if (chores.length > 0) { %>
+                <% chores.forEach(chore => { %>
+                    <li class="<%= chore.completed ? 'completed' : '' %>">
+                        <form action="/toggle/<%= chore.id %>" method="POST">
+                            <input type="checkbox" onchange="this.form.submit()" <%= chore.completed ? 'checked' : '' %>>
+                            <label><%= chore.task %></label>
+                        </form>
+                        <form action="/delete/<%= chore.id %>" method="POST">
+                            <button type="submit" class="delete-btn">Delete</button>
+                        </form>
+                    </li>
+                <% }); %>
+            <% } else { %>
+                <li class="empty">No chores added yet.</li>
+            <% } %>
+        </ul>
+    </div>
+</body>
+</html>
