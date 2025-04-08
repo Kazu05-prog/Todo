@@ -1,0 +1,153 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #1a1a1a url('/images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 255, 255, 0.1); /* Add subtle glow */
+    width: 400px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.add-chore-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.add-chore-form input[type="text"] {
+    padding: 10px 10px 10px 40px; /* Add padding for potential icons */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background: #333; /* Dark input background */
+    color: #fff; /* Light text color */
+    outline: none;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-chore-form input[type="text"]:hover {
+    background: #444; /* Slightly lighter background on hover */
+}
+
+.add-chore-form input[type="text"]:focus {
+    background: #444; /* Highlight input on focus */
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2); /* Subtle glow on focus */
+}
+
+.add-chore-form button {
+    background: linear-gradient(45deg, #555, #777); /* Gradient background */
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.add-chore-form button:hover {
+    background: linear-gradient(45deg, #666, #888);
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a shadow effect */
+}
+
+.chore-list {
+    margin-top: 20px;
+    list-style: none;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.chore-list li {
+    padding: 15px;
+    border-bottom: 1px solid #444; /* Darker border */
+    font-size: 16px;
+    color: #fff; /* Light text color */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeIn 0.5s ease; /* Add fade-in animation */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.chore-list li:last-child {
+    border-bottom: none;
+}
+
+.chore-list li label {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+.chore-list li input[type="checkbox"] {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.chore-list li.completed label {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.chore-list li .delete-btn {
+    background: #d9534f;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.chore-list li .delete-btn:hover {
+    background: #c9302c;
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+.chore-list li.empty {
+    text-align: center;
+    color: #aaa; /* Lighter color for empty state */
+    padding: 15px 0;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.chore-list li.empty::before {
+    content: "📝"; /* Add an icon for empty state */
+    display: block;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
